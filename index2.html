@@ -59,24 +59,7 @@
         });
       }
 
-      function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-        var selectedMode = document.getElementById('mode').value;
-        directionsService.route({
-		navigator.geolocation.getCurrentPosition(showPosition);
-          origin: {lat: 37.77, lng: -122.447},  // Haight.
-          destination: {lat: 37.768, lng: -122.511},  // Ocean Beach.
-          // Note that Javascript allows us to access the constant
-          // using square brackets and a string value as its
-          // "property."
-          travelMode: google.maps.TravelMode[selectedMode]
-        }, function(response, status) {
-          if (status == 'OK') {
-            directionsDisplay.setDirections(response);
-          } else {
-            window.alert('Directions request failed due to ' + status);
-          }
-        });
-      }
+     
 	  
 function showPosition(position) {
     var latlon = position.coords.latitude + "," + position.coords.longitude;
