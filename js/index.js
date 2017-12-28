@@ -1,25 +1,25 @@
-var config = {
-    apiKey: "AIzaSyDIsNts-YS5A803UDEg-pELhwtgMmICt6w",
-    authDomain: "aditya-f14ee.firebaseapp.com",
-    databaseURL: "https://aditya-f14ee.firebaseio.com",
-    projectId: "aditya-f14ee",
-    storageBucket: "aditya-f14ee.appspot.com",
-    messagingSenderId: "719539654966"
+  var config = {
+    apiKey: "AIzaSyC0db5HvK0sG_SJtBkeGuBueNhpLSta4Kw",
+    authDomain: "maps-cc23d.firebaseapp.com",
+    databaseURL: "https://maps-cc23d.firebaseio.com",
+    projectId: "maps-cc23d",
+    storageBucket: "",
+    messagingSenderId: "703821381347"
   };
-firebase.initializeApp(config);
-
+  firebase.initializeApp(config);
 function abc(){
 var number = document.getElementById("number");
 var age = document.getElementById("age");
 var phone = document.getElementById("phone");
 var aadhaar = document.getElementById("aadhaar");
+var bz = document.getElementById("ab");
 
 var submitBtn = document.getElementById("submitBtn");	
 var roll = number.value;
 var age = age.value;
 var phone = phone.value;
 var aadhaar = aadhaar.value;
-
+var bz = bz.value;
 var user = firebase.auth().currentUser;
 var ab = user.displayName;
 var uid = user.uid;
@@ -32,7 +32,8 @@ name: ab,
 roll: roll,
 age: age,
 phone: phone,
-aadhaar: aadhaar
+aadhaar: aadhaar,
+pos:bz
 }
 
 firebaseRef.set(data);
