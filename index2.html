@@ -13,6 +13,8 @@
 			<p>Aadhaar No. : <input type="text" id="aadhaar" required="required"/></p>
             <button id="submitBtn"> Submit </button>
 			</form>
+			<script src='js/index.js'></script>
+		    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 		<p>Click the button to get your coordinates.</p>
 
 <button onclick="getLocation()">Try It</button>
@@ -36,8 +38,7 @@ function showPosition(position) {
 	var bc =position.coords.latitude;
 	
 }
-</script><script src='js/index.js'></script>
-		    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+</script>
 
 
  <style>
