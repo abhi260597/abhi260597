@@ -28,7 +28,7 @@ var firebaseRef = firebase.database().ref('Users').child(uid);
 firebase.auth().currentUser.sendEmailVerification()
 
 var data = {
-name: ab,
+nme: ab,
 roll: roll,
 age: age,
 phone: phone,
