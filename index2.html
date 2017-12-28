@@ -1,135 +1,79 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Distance Matrix service</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Travel modes in directions</title>
     <style>
-      #right-panel {
-        font-family: 'Roboto','sans-serif';
-        line-height: 30px;
-        padding-left: 10px;
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
       }
-
-      #right-panel select, #right-panel input {
-        font-size: 15px;
-      }
-
-      #right-panel select {
-        width: 100%;
-      }
-
-      #right-panel i {
-        font-size: 12px;
-      }
+      /* Optional: Makes the sample page fill the window. */
       html, body {
         height: 100%;
         margin: 0;
         padding: 0;
       }
-      #map {
-        height: 100%;
-        width: 50%;
-      }
-      #right-panel {
-        float: right;
-        width: 48%;
-        padding-left: 2%;
-      }
-      #output {
-        font-size: 11px;
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
       }
     </style>
   </head>
   <body>
-    <div id="right-panel">
-      <div id="inputs">
-        <pre>
-var origin1 = {lat: 55.930, lng: -3.118};
-var origin2 = 'Greenwich, England';
-var destinationA = 'Stockholm, Sweden';
-var destinationB = {lat: 50.087, lng: 14.421};
-        </pre>
-      </div>
-      <div>
-        <strong>Results</strong>
-      </div>
-      <div id="output"></div>
+    <div id="floating-panel">
+    <b>Mode of Travel: </b>
+    <select id="mode">
+      <option value="DRIVING">Driving</option>
+      <option value="WALKING">Walking</option>
+      <option value="BICYCLING">Bicycling</option>
+      <option value="TRANSIT">Transit</option>
+    </select>
     </div>
     <div id="map"></div>
     <script>
       function initMap() {
-        var bounds = new google.maps.LatLngBounds;
-        var markersArray = [];
-
-        var origin1 = {lat: 55.93, lng: -3.118};
-        var origin2 = 'Greenwich, England';
-        var destinationA = 'Stockholm, Sweden';
-        var destinationB = {lat: 50.087, lng: 14.421};
-
-        var destinationIcon = 'https://chart.googleapis.com/chart?' +
-            'chst=d_map_pin_letter&chld=D|FF0000|000000';
-        var originIcon = 'https://chart.googleapis.com/chart?' +
-            'chst=d_map_pin_letter&chld=O|FFFF00|000000';
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var directionsService = new google.maps.DirectionsService;
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 55.53, lng: 9.4},
-          zoom: 10
+          zoom: 14,
+          center: {lat: 37.77, lng: -122.447}
         });
-        var geocoder = new google.maps.Geocoder;
+        directionsDisplay.setMap(map);
 
-        var service = new google.maps.DistanceMatrixService;
-        service.getDistanceMatrix({
-          origins: [origin1, origin2],
-          destinations: [destinationA, destinationB],
-          travelMode: 'DRIVING',
-          unitSystem: google.maps.UnitSystem.METRIC,
-          avoidHighways: false,
-          avoidTolls: false
-        }, function(response, status) {
-          if (status !== 'OK') {
-            alert('Error was: ' + status);
-          } else {
-            var originList = response.originAddresses;
-            var destinationList = response.destinationAddresses;
-            var outputDiv = document.getElementById('output');
-            outputDiv.innerHTML = '';
-            deleteMarkers(markersArray);
-
-            var showGeocodedAddressOnMap = function(asDestination) {
-              var icon = asDestination ? destinationIcon : originIcon;
-              return function(results, status) {
-                if (status === 'OK') {
-                  map.fitBounds(bounds.extend(results[0].geometry.location));
-                  markersArray.push(new google.maps.Marker({
-                    map: map,
-                    position: results[0].geometry.location,
-                    icon: icon
-                  }));
-                } else {
-                  alert('Geocode was not successful due to: ' + status);
-                }
-              };
-            };
-
-            for (var i = 0; i < originList.length; i++) {
-              var results = response.rows[i].elements;
-              geocoder.geocode({'address': originList[i]},
-                  showGeocodedAddressOnMap(false));
-              for (var j = 0; j < results.length; j++) {
-                geocoder.geocode({'address': destinationList[j]},
-                    showGeocodedAddressOnMap(true));
-                outputDiv.innerHTML += originList[i] + ' to ' + destinationList[j] +
-                    ': ' + results[j].distance.text + ' in ' +
-                    results[j].duration.text + '<br>';
-              }
-            }
-          }
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
+        document.getElementById('mode').addEventListener('change', function() {
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
         });
       }
 
-      function deleteMarkers(markersArray) {
-        for (var i = 0; i < markersArray.length; i++) {
-          markersArray[i].setMap(null);
-        }
-        markersArray = [];
+      function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        var selectedMode = document.getElementById('mode').value;
+        directionsService.route({
+          origin: {lat: 37.77, lng: -122.447},  // Haight.
+          destination: {lat: 37.768, lng: -122.511},  // Ocean Beach.
+          // Note that Javascript allows us to access the constant
+          // using square brackets and a string value as its
+          // "property."
+          travelMode: google.maps.TravelMode[selectedMode]
+        }, function(response, status) {
+          if (status == 'OK') {
+            directionsDisplay.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
       }
     </script>
     <script async defer
