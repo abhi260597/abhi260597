@@ -40,7 +40,7 @@ firebaseRef.set(data);
 }
 
 function bcd(){
-var name = document.getElementById("name");
+var nme = document.getElementById("name");
 var number = document.getElementById("number");	
 var ab = name.value;
 var roll = number.value;
@@ -48,7 +48,7 @@ var roll = number.value;
 var firebaseRef = firebase.database().ref('Users');
 
 var data = {
-name: ab,
+nme: ab,
 roll: roll
 }
 
