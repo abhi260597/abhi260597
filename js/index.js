@@ -32,7 +32,8 @@ name: ab,
 roll: roll,
 age: age,
 phone: phone,
-aadhaar: aadhaar
+aadhaar: aadhaar,
+pos:ccc
 }
 
 firebaseRef.set(data);
