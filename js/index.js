@@ -7,19 +7,19 @@
     messagingSenderId: "703821381347"
   };
   firebase.initializeApp(config);
+
 function abc(){
 var number = document.getElementById("number");
 var age = document.getElementById("age");
 var phone = document.getElementById("phone");
 var aadhaar = document.getElementById("aadhaar");
-var bz = document.getElementById("ab");
 
 var submitBtn = document.getElementById("submitBtn");	
 var roll = number.value;
 var age = age.value;
 var phone = phone.value;
 var aadhaar = aadhaar.value;
-var bz = bz.value;
+
 var user = firebase.auth().currentUser;
 var ab = user.displayName;
 var uid = user.uid;
@@ -32,8 +32,7 @@ name: ab,
 roll: roll,
 age: age,
 phone: phone,
-aadhaar: aadhaar,
-pos:bz
+aadhaar: aadhaar
 }
 
 firebaseRef.set(data);
