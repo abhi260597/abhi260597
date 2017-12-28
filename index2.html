@@ -7,7 +7,7 @@
         <h2><br><br>
             <font color="blue"> Registration Page 2 </font> </h2>
 			<form method="get" action="verification.html" onclick="abc()">
-			<p>Roll No. : <input type="text" id="number" required="required"/></p>
+			<p>Rol No. : <input type="text" id="number" required="required"/></p>
 			<p> &nbsp; &nbsp; Age : <input type="text" id="age" required="required"/></p>
 			<p>Phone No. : <input type="text" id="phone" required="required"/></p>
 			<p>Aadhaar No. : <input type="text" id="aadhaar" required="required"/></p>
@@ -32,6 +32,8 @@ function getLocation() {
 function showPosition(position) {
     x.innerHTML="Latitude: " + position.coords.latitude + 
     "<br>Longitude: " + position.coords.longitude;
+	var ab =position.coords.latitude;
+	var bc =position.coords.latitude;
 	
 }
 </script>
