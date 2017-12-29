@@ -126,6 +126,10 @@
         }, function(response, status) {
           if (status === 'OK') {
             directionsDisplay.setDirections(response);
+			<script>
+var d =response.routes[0].legs[0].distance.text
+document.getElementById("demo").innerHTML = d;
+</script>
           } else {
             window.alert('Directions request failed due to ' + status);
           }
@@ -137,9 +141,6 @@
     </script>
 	<p id="demo"></p>
 
-<script>
-var d =response.routes[0].legs[0].distance.text
-document.getElementById("demo").innerHTML = d;
-</script>
+
   </body>
 </html>
