@@ -126,10 +126,8 @@
         }, function(response, status) {
           if (status === 'OK') {
             directionsDisplay.setDirections(response);
-			<script>
-var d =response.routes[0].legs[0].distance.text
-document.getElementById("demo").innerHTML = d;
-</script>
+			var d =response.routes[0].legs[0].distance.text
+			document.getElementById("demo").innerHTML = d;
           } else {
             window.alert('Directions request failed due to ' + status);
           }
@@ -139,8 +137,11 @@ document.getElementById("demo").innerHTML = d;
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtKYdYA8jIvGbekrfJtThZVHyKESRvTJc&callback=initMap">
     </script>
+	
 	<p id="demo"></p>
 
+<script>
 
+</script>
   </body>
 </html>
