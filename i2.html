@@ -139,6 +139,23 @@
           me.route();
         });
       };
+	   function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        var start = document.getElementById('start').value;
+        var end = document.getElementById('end').value;
+        directionsService.route({
+          origin: start,
+          destination: end,
+          travelMode: 'DRIVING'
+        }, function(response, status) {
+          if (status === 'OK') {
+            directionsDisplay.setDirections(response);
+			var d =response.routes[0].legs[0].distance.text
+			document.getElementById("demo").innerHTML = d;
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      }
       AutocompleteDirectionsHandler.prototype.route = function() {
         if (!this.originPlaceId || !this.destinationPlaceId) {
           return;
@@ -156,23 +173,7 @@
           }
         });
       };
-	  function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-        var start = document.getElementById('start').value;
-        var end = document.getElementById('end').value;
-        directionsService.route({
-          origin: start,
-          destination: end,
-          travelMode: 'DRIVING'
-        }, function(response, status) {
-          if (status === 'OK') {
-            directionsDisplay.setDirections(response);
-			var d =response.routes[0].legs[0].distance.text
-			document.getElementById("demo").innerHTML = d;
-          } else {
-            window.alert('Directions request failed due to ' + status);
-          }
-        });
-      }
+	 
     </script>
 	<script src="https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=Washington,DC&destinations=New+York+City,NY&key=AIzaSyC_K6Rb1cVPSR_EN3aHN7ZqdTYBlpSQ9Ik"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_K6Rb1cVPSR_EN3aHN7ZqdTYBlpSQ9Ik&libraries=places&callback=initMap"
