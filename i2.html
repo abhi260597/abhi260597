@@ -82,14 +82,15 @@
           mapTypeControl: false,
           center: {lat:28.5036, lng: 77.0498},
           zoom: 16
-        });directionsDisplay.setMap(map);
+        });
+        new AutocompleteDirectionsHandler(map);
+		directionsDisplay.setMap(map);
         directionsDisplay.setPanel(document.getElementById('right-panel'));
 
         var control = document.getElementById('floating-panel');
         control.style.display = 'block';
         map.controls[google.maps.ControlPosition.TOP_CENTER].push(control);
 
-        new AutocompleteDirectionsHandler(map);
       }
        /**
         * @constructor
