@@ -175,6 +175,8 @@
         }, function(response, status) {
           if (status === 'OK') {
             me.directionsDisplay.setDirections(response);
+			var d =response.routes[0].legs[0].distance.text
+			document.getElementById("demo").innerHTML = d;
           } else {
             window.alert('Directions request failed due to ' + status);
           }
