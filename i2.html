@@ -157,7 +157,7 @@
           origin: {'placeId': this.originPlaceId},
           destination: {'placeId': this.destinationPlaceId},
           travelMode: this.travelMode
-		  me.calculateAndDisplayRoute(directionsService, directionsDisplay);
+		 // me.calculateAndDisplayRoute(directionsService, directionsDisplay);
         }, function(response, status) {
           if (status === 'OK') {
             me.directionsDisplay.setDirections(response);
