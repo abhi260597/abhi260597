@@ -178,7 +178,9 @@
           if (status === 'OK') {
             directionsDisplay.setDirections(response);
 			var d =response.routes[0].legs[0].distance.text
+			var k =response.routes[0].legs[0].duration.text
 			document.getElementById("demo").innerHTML = d;
+			document.getElementById("dem").innerHTML = k;
           } else {
             window.alert('Directions request failed due to ' + status);
           }
@@ -190,6 +192,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_K6Rb1cVPSR_EN3aHN7ZqdTYBlpSQ9Ik&libraries=places&callback=initMap"
         async defer></script>
 		<p id="demo"></p>
+		<p id="dem"></p>
 	
   </body>
 </html>
