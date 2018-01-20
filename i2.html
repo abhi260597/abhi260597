@@ -152,11 +152,12 @@
           return;
         }
         var me = this;
-		calculateAndDisplayRoute(directionsService, directionsDisplay);
+		
         this.directionsService.route({
           origin: {'placeId': this.originPlaceId},
           destination: {'placeId': this.destinationPlaceId},
           travelMode: this.travelMode
+		  calculateAndDisplayRoute(directionsService, directionsDisplay);
         }, function(response, status) {
           if (status === 'OK') {
             me.directionsDisplay.setDirections(response);
