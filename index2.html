@@ -127,7 +127,9 @@
           if (status === 'OK') {
             directionsDisplay.setDirections(response);
 			var d =response.routes[0].legs[0].distance.text
+			var k =response.routes[0].legs[0].duration.text
 			document.getElementById("demo").innerHTML = d;
+			document.getElementById("dem").innerHTML = k;
           } else {
             window.alert('Directions request failed due to ' + status);
           }
@@ -139,6 +141,7 @@
     </script>
 	
 	<p id="demo"></p>
+	<p id="dem"></p>
 
 <script>
 
