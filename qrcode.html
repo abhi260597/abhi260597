@@ -1,42 +1,60 @@
 <html>
-    <head>
-	    <link class="img" rel="icon" href="img/a.png">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link class="img" rel="icon" href="img/a.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/2.2.1/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.2.1/firebaseui.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src = "js/index.js"></script>
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
-<script src='js/index.js'></script>
-  <script src="view.css"></script>
-  <link href="view.css" rel="stylesheet">
-	<script src="https://cdn.firebase.com/libs/firebaseui/2.2.1/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.2.1/firebaseui.css" />
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <title>Jolt</title>
-    <script src= "js/index.js"></script>
-    <script>
+<script>
+      
 	firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
     } else {
     window.location.assign("index.html");
     }
     });
-    </script>
 	
-	</head>
-	<style>
+	firebase.auth().onAuthStateChanged(function(user) { 
+    if (user.emailVerified) {
+    }
+    else {
+    alert('Email is not verified. Verify first In order to proceed forward.');
+	window.location.assign("verification.html");
+  }
+});
+
+</script>
+
+<title>Firebase</title>
+<script src = "js/index.js"></script>
+
+<style>
+  section {
+    margin: 50px auto;
+    max-width: 350px;
+    text-align: center;
+  }
+  textarea {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  #size { max-width: 64px; }
+
   body{
+  font-family: arial, sans-serif;
   background: #3a6186; /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #3a6186 , #89253e); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #3a6186 , #89253e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color : #fff;
   }
   </style>
-    <body>
-	<nav class='navbar navbar-default'>
+<body>
+<nav class='navbar navbar-default'>
   <div class='container-fluid'>
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class='navbar-header'>
@@ -66,15 +84,17 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-	    <center><h2>
-		    <img src="img/email.png" width="170px;" height="170px;"><br><br>
-            <font color="white"> Email Verification </font> </h2> <br>
-            <form method="get" action="loginsuccessful.html">
-			<p> <font color="darkblue"> An email has been sent to your provided email address to verify your email address for security purposes.</p>
-			<p>If verified, click the button below to continue </font> </p> <br>
-			<button class = "btn btn-success"> Continue </button>
-		    </form>
-    </center></body>
+<section><center>
+  <h1> <font color="orangered"> QR Code </font> </h1>
+  <p> <font color="darkblue"> Scan this QR Code to get your journey details </font> </p>
+  <input type="hidden" id="size" type="number" readonly value="250" min="50" max="500" step="50">
+  <button class='btn btn-success' onclick="genQRcode()">Generate</button>
+  <div id="content" style="display:none;">
+  <br>
+  <p><img id="qrcode"/></p>
+  </div>
+</center></section>
+</body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </html>

@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8">
 	<link class="img" rel="icon" href="img/a.png">
-    <title>Firebase</title>
+    <title>Jolt</title>
 	<link href="SmartParkslog.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -38,28 +38,44 @@
       ui.start('#firebaseui-auth-container', uiConfig);
     </script>
   </head>
+  <style>
+  body{
+  background: #3a6186; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #3a6186 , #89253e); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #3a6186 , #89253e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color : #fff;
+  }
+  </style>
   <body>
-    <!-- The surrounding HTML is left untouched by FirebaseUI.
-         Your app may use that space for branding, controls and other customizations.-->
-  <br><br>		 
+  <nav class='navbar navbar-default'>
+  <div class='container-fluid'>
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+    <div class='navbar-header'>
+      <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#bs-example-navbar-collapse-1' aria-expanded='false'>
+        <span class='sr-only'>Toggle navigation</span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
       </button>
+      <a class='navbar-brand' href=''>Jolt</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    
+    <div class='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>
+      <ul class='nav navbar-nav'>
+      <li class=''><a href='index.html'> <span class='glyphicon glyphicon-home'></span> Home <span class='sr-only'>(current)</span></a></li>
+        <li><a href='about.html'> <span class='glyphicon glyphicon-book'></span> About Us</a></li>
+      </ul> 
+      
+      <ul class='nav navbar-nav navbar-right'>
+	  <li><a href='index1.html'> <span class='glyphicon glyphicon-edit'></span> Sign Up </a></li>
+      <li><a href='login.html'> <span class='glyphicon glyphicon-log-in'></span> Login </a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-</nav>  
-  <center><p class="ops">Sign-Up Page 1</p>
-    <p class="opl">Welcome please sign in first</p></center>
+</nav>
+    <center><img src="img/avatar.png" width="200px;" height="200px;"><h1> <font color="white"> Sign-Up Page 1 </font> </h1>
+    <h3> <font color="yellow"> Welcome please sign up first</font> </h3></center>
 	<div id="firebaseui-auth-container"><p></p></div>
   </body>
   
