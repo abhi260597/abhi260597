@@ -253,7 +253,8 @@ firebaseRef.on('value', function(snapshot) {
 			var k =response.routes[0].legs[0].duration.text
 			document.getElementById("demo").innerHTML = d;
 				document.getElementById("dem").innerHTML = k;
-				var s1= 5+(d/3);
+				var dd=parseInt(d);
+				var s1= 5+(dd/3);
 				document.getElementById("dm").innerHTML = s1;
           } else {
             window.alert('Directions request failed due to ' + status);
