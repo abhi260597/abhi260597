@@ -253,6 +253,8 @@ firebaseRef.on('value', function(snapshot) {
 			var k =response.routes[0].legs[0].duration.text
 			document.getElementById("demo").innerHTML = d;
 				document.getElementById("dem").innerHTML = k;
+				sessionStorage.clickcount = d;
+			sessionStorage.clickcounts = k;
 				var dd=parseInt(d);
 				var es=parseInt(k);
 				var s1= 5+(dd*4)+(es/3);
