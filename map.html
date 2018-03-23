@@ -276,6 +276,8 @@ firebaseRef.on('value', function(snapshot) {
 			var k =response.routes[0].legs[0].duration.text
 			document.getElementById("demo").innerHTML = d;
 			document.getElementById("dem").innerHTML = k;
+			sessionStorage.clickcount = d;
+			sessionStorage.clickcounts = k;
           } else {
             window.alert('Directions request failed due to ' + status);
           }
