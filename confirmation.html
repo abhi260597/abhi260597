@@ -40,6 +40,7 @@
 
         
         var abcc =sessionStorage.clickcount ;
+		var abcd=sessionStorage.getItem("SessionName")
 		
        // document.getElementById("result").innerHTML = "You have clicked the button " + sessionStorage.clickcount + " time(s) in this session.";
     
@@ -52,10 +53,11 @@
 </script>
 
 <body>
-alert(sessionStorage.clickcount);
+alert("sessionStorage.clickcount");
     <b>&nbsp;Distance:</b> <p style="display:inline" id="result"></p>
 		&nbsp;&nbsp;&nbsp;&nbsp; <b>Time:</b> <p style="display:inline" id="dem"></p>
 		&nbsp;&nbsp;&nbsp;&nbsp; <b>Cost:</b> <p style="display:inline" id="dm"></p>
+		document.write(abcd);
 <nav class='navbar navbar-default'>
   <div class='container-fluid'>
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -89,6 +91,7 @@ alert(sessionStorage.clickcount);
 <center>
 <h2><br>
 <font color="yellow">Your Booking Info</font> </h2>
+<
 <br>
 <form method="get" action="qrcode.html">
 <b><font color="orange">Starting point:</font></b>
