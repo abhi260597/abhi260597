@@ -257,7 +257,7 @@ firebaseRef.on('value', function(snapshot) {
 			sessionStorage.clickcounts = k;
 				var dd=parseInt(d);
 				var es=parseInt(k);
-				var s1= 5+(dd*4)+(es/3);
+				var Math.ceil(s1)= 5+(dd*4)+(es/3);
 				document.getElementById("dm").innerHTML = s1;
           } else {
             window.alert('Directions request failed due to ' + status);
