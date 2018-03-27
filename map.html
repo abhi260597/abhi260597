@@ -1,15 +1,16 @@
 <html>
   <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
-<script src="https://cdn.firebase.com/libs/firebaseui/2.2.1/firebaseui.js"></script>
-<script src = "js/index1.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link class="img" rel="icon" href="img/a.png">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta charset="UTF-8">
+	<link class="img" rel="icon" href="img/a.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">   
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+    <script src='js/index1.js'></script>
+	<script src="https://cdn.firebase.com/libs/firebaseui/2.2.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.2.1/firebaseui.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>Jolt</title>
 
     <style>
@@ -17,7 +18,7 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 91%;
+        height: 78%;
       }
 	  
       /* Optional: Makes the sample page fill the window. */
@@ -26,6 +27,13 @@
         margin: 0;
         padding: 0;
       }
+	 
+  body{
+  background: #3a6186; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #3a6186 , #89253e); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #3a6186 , #89253e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color : #fff;
+  }
 	  
       .controls {
         margin-top: 10px;
@@ -103,18 +111,61 @@
       }
     </style>
   </head>
-  <body> <form method="get" action="confirmation.html" onclick="aabb()">
-	<input id="origin-input" class="controls" type="text"
-        placeholder="Enter source" name="Source" required="required" />	
+  <body> 
+  
+  <nav class='navbar navbar-default'>
+  <div class='container-fluid'>
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class='navbar-header'>
+      <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#bs-example-navbar-collapse-1' aria-expanded='false'>
+        <span class='sr-only'>Toggle navigation</span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+      </button>
+      <a class='navbar-brand' href=''>Jolt</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>
+      <ul class='nav navbar-nav'>
+      <li class=''><a href='loginsuccessful.html'> <span class='glyphicon glyphicon-home'></span> Home <span class='sr-only'>(current)</span></a></li>
+      </ul> 
+      
+      <ul class='nav navbar-nav navbar-right'>
+	  <li class='dropdown'>
+          <a href='' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'> <span class='glyphicon glyphicon-user'></span> My Account <span class='caret'></span> </a>
+          <ul class='dropdown-menu'>
+            <li><a href='logout.html' <span class='glyphicon glyphicon-log-out'></span> Logout</a></li>
+          </ul>
+          </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+  
+  <form method="get" action="confirmation.html" onclick="aabb()">
+  <input id="origin-input" class="controls" type="text"
+        placeholder="Enter source" style="color:black" name="Source" required="required">	
+		<input id="SLat" class="controls" type="text"
+        placeholder="Enter source" style="color:black" type="hidden">	
+		<input id="SLon" class="controls" type="text"
+        placeholder="" style="color:black" type="hidden">	
+		<input id="DLat" class="controls" type="text"
+        placeholder="Enter source" style="color:black" type="hidden">	
+	<input id="DLat" class="controls" type="text"
+        placeholder="Enter sourc" style="color:black" type="hidden">	
 	
     <input id="destination-input" class="controls" type="text"
-        placeholder="Enter destination" name="Destination" required="required">
+        placeholder="Enter destination" style="color:black" name="Destination" required="required">
 		
 	    <b>&nbsp;Distance:</b> <p style="display:inline" id="demo"></p>
 		&nbsp;&nbsp;&nbsp;&nbsp; <b>Time:</b> <p style="display:inline" id="dem"></p>
-		&nbsp;&nbsp;&nbsp;&nbsp; <b>Cost:</b> <p style="display:inline" id="dm"></p>
+		&nbsp;&nbsp;&nbsp;&nbsp; <p style="display:inline" id="dm"></p>
 		
-		<br><button id="abc" class="btn btn-success"> <span class='glyphicon glyphicon-ok'></span> </button> </form>
+		
+		
+		<br> <button id="abc" style="position:absolute; bottom:63%; right:30%; z-index: 1;" class="btn btn-success"> Proceed further </button> </form>
  		
 		<button id="a" onclick="document.getElementById('origin-input').value = ''" type="button" size="50px" class="close" >
     <span>&#10006;<br></span>
@@ -149,7 +200,7 @@ firebaseRef.on('value', function(snapshot) {
 	firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
     } else {
-    window.location.assign("index.html");
+    //window.location.assign("index.html");
     }
     });
 	
@@ -248,17 +299,33 @@ firebaseRef.on('value', function(snapshot) {
           travelMode: this.travelMode
         }, function(response, status) {
           if (status === 'OK') {
+		  
             me.directionsDisplay.setDirections(response);
+		
 			var d =response.routes[0].legs[0].distance.text
 			var k =response.routes[0].legs[0].duration.text
-			document.getElementById("demo").innerHTML = d;
+			
+			var de = response.routes[0].bounds.b.b
+			var dl = response.routes[0].bounds.b.f
+			var dk = response.routes[0].bounds.f.b
+			var ds = response.routes[0].bounds.f.f
+			
+			document.getElementById("SLat").value = de;
+			document.getElementById("SLon").value = dl;
+			document.getElementById("DLat").value = dk;
+			document.getElementById("DLon").value = ds;
+	
+			    document.getElementById("demo").innerHTML = d;
 				document.getElementById("dem").innerHTML = k;
-				sessionStorage.clickcount = d;
-			sessionStorage.clickcounts = k;
-				var dd=parseInt(d);
+				sessionStorage.clickcount = document.getElementById("origin-input").value;
+			    sessionStorage.clickcounts = document.getElementById("destination-input").value;
+			
+			var dd=parseInt(d);
 				var es=parseInt(k);
-				var s1= 5+(dd*4)+(es/3);
-				document.getElementById("dm").innerHTML = s1;
+				var s2 = 5+(dd*4)+(es/3);
+				var s1 = Math.ceil(s2);
+				//document.getElementById("dm").innerHTML = s1;
+				sessionStorage.clickcountes = s1;
           } else {
             window.alert('Directions request failed due to ' + status);
           }
@@ -276,10 +343,9 @@ firebaseRef.on('value', function(snapshot) {
             directionsDisplay.setDirections(response);
 			var d =response.routes[0].legs[0].distance.text
 			var k =response.routes[0].legs[0].duration.text
+			var k1 =response.routes[0].bounds.b.b
 			document.getElementById("demo").innerHTML = d;
-			document.getElementById("dem").innerHTML = k;
-			sessionStorage.clickcount = d;
-			sessionStorage.clickcounts = k;
+			document.getElementById("dem").innerHTML = k1;
           } else {
             window.alert('Directions request failed due to ' + status);
           }
@@ -297,11 +363,123 @@ var config = {
 firebase.initializeApp(config);
 	
 	</script>
-	<script src = "js/index1.js"></script>
+	<script src = "js/index.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=Washington,DC&destinations=New+York+City,NY&key=AIzaSyC_K6Rb1cVPSR_EN3aHN7ZqdTYBlpSQ9Ik"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_K6Rb1cVPSR_EN3aHN7ZqdTYBlpSQ9Ik&libraries=places&callback=initMap"
         async defer></script>	
   </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<style>
+/* Footer */
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+section {
+    padding: 60px 0;
+}
+
+section .section-title {
+    text-align: center;
+    color: #007b5e;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+#footer {
+    background: black !important;
+}
+#footer h5{
+	padding-left: 10px;
+    border-left: 3px solid #eeeeee;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    color:white;
+}
+#footer a {
+    color: black;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+#footer ul.social li{
+	padding: 3px 0;
+}
+#footer ul.social li a i {
+    margin-right: 5px;
+	font-size:25px;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.social li:hover a i {
+	font-size:30px;
+	margin-top:-10px;
+}
+#footer ul.social li a,
+#footer ul.quick-links li a{
+	color:#ffffff;
+}
+#footer ul.social li a:hover{
+	color:#eeeeee;
+}
+#footer ul.quick-links li{
+	padding: 3px 0;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.quick-links li:hover{
+	padding: 3px 0;
+	margin-left:5px;
+	font-weight:700;
+}
+#footer ul.quick-links li a i{
+	margin-right: 5px;
+}
+#footer ul.quick-links li:hover a i {
+    font-weight: 700;
+}
+
+@media (max-width:767px){
+	#footer h5 {
+    padding-left: 0;
+    border-left: transparent;
+    padding-bottom: 0px;
+    
+}
+}
+
+</style>
+
+	<section id="footer">
+		<div class="container">
+			<div class="row text-center text-xs-center text-sm-left text-md-left">
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5> JOLT </h5>
+					   <p>Jolt India™ is a gurugram based start-up that intends to provide its customers a comfortable ride to their destination by supporting the Indian Government’s vision to promote the electric vehicles.</p>
+
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5> OUR LINKS </h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href=""><i class="fa fa-angle-double-right"></i>Home</a></li>
+						<li><a href=""><i class="fa fa-angle-double-right"></i>About Us</a></li>
+						<li><a href=""><i class="fa fa-angle-double-right"></i>Our Team</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5> CONTACT US </h5>
+                    <p><a style="color:white;" href= "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=electricjoltindia1@gmail.com"><i class="fa fa-envelope mr-3"></i> electricjoltindia1@gmail.com </a></p>
+                    <p><a style="color:white;" href="tel:97161 30797"><i class="fa fa-phone mr-3"></i> 97161 30797</a></p>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+					<p class="h6">&copy 2018 Copyright. All Rights Reversed.</p>
+				</div>
+				</hr>
+			</div>	
+		</div>
+	</section>
+
 </html>
