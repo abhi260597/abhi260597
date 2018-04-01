@@ -147,10 +147,14 @@
   <form method="get" action="confirmation.html" onclick="aabb()">
   <input id="origin-input" class="controls" type="text"
         placeholder="Enter source" style="color:black" name="Source" required="required">	
-		<input id="SLat" class="controls"  type="hidden">	
-		<input id="SLon" class="controls" type="hidden">	
-		<input id="DLat" class="controls" type="hidden">	
-	<input id="DLat" class="controls"  type="hidden">	
+		<input id="SLat" class="controls" 
+        placeholder="Enter source" style="color:black" type="hidden">	
+		<input id="SLon" class="controls
+        placeholder=""  type="hidden">	
+		<input id="DLat" class="controls" 
+        placeholder="Enter source" style="color:black" type="hidden">	
+	<input id="DLon" class="controls" 
+        placeholder="Enter sourc" style="color:black" type="hidden">	
 	
     <input id="destination-input" class="controls" type="text"
         placeholder="Enter destination" style="color:black" name="Destination" required="required">
@@ -300,7 +304,7 @@ firebaseRef.on('value', function(snapshot) {
 		
 			var d =response.routes[0].legs[0].distance.text
 			var k =response.routes[0].legs[0].duration.text
-			
+			debugger;
 			var de = response.routes[0].bounds.b.b
 			var dl = response.routes[0].bounds.b.f
 			var dk = response.routes[0].bounds.f.b
@@ -309,6 +313,7 @@ firebaseRef.on('value', function(snapshot) {
 			document.getElementById("SLat").value = de;
 			document.getElementById("SLon").value = dl;
 			document.getElementById("DLat").value = dk;
+			debugger;
 			document.getElementById("DLon").value = ds;
 	
 			    document.getElementById("demo").innerHTML = d;

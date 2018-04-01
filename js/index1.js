@@ -9,8 +9,7 @@ var config = {
 firebase.initializeApp(config);
 
 function aabb(){
-	
-alert(abc);
+	debugger;
 
 var currentDate = new Date(),
       day = currentDate.getDate(),
@@ -26,14 +25,25 @@ var currentDate = new Date(),
 	 minutes = "0" + minutes;
   }
 	var time = hours + ":" + minutes;
-
+var s1="";
+var s2="";
+var d1="";
+var d2="";
 var b = document.getElementById("origin-input");
 var c = document.getElementById("destination-input");
 var a = document.getElementById("dm");
-var s1 = document.getElementById("SLan");
-var s2 = document.getElementById("SLon");
-var d1 = document.getElementById("DLan");
-var d2 = document.getElementById("DLon");
+if(document.getElementById("SLat")){
+s1=document.getElementById("SLat").value;
+}
+if(document.getElementById("SLon")){
+s2=document.getElementById("SLon").value;
+}
+if(document.getElementById("DLat")){
+d1=document.getElementById("DLat").value;
+}
+if(document.getElementById("DLon")){
+d2=document.getElementById("DLon").value;
+}
 
 var submitBtn = document.getElementById("submit");	
 

@@ -20,6 +20,12 @@
     <script>
 	firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
+	if (firebaseUser.emailVerified) {
+        // console.log(firebaseUser.emailVerified); 
+        toastr.success('Email verified');
+      } else {
+      window.location.assign("index.html");
+ 
     } else {
     window.location.assign("index.html");
     }
