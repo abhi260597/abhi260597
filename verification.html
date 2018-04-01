@@ -20,11 +20,11 @@
     <script>
 	firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-	if (firebaseUser.emailVerified) {
+	if (user.emailVerified) {
         // console.log(firebaseUser.emailVerified); 
         toastr.success('Email verified');
       } else {
-      window.location.assign("index.html");
+    window.location.assign("index.html");
  
     } else {
     window.location.assign("index.html");
@@ -61,26 +61,132 @@
       <li class=''><a href='loginsuccessful.html'> <span class='glyphicon glyphicon-home'></span> Home <span class='sr-only'>(current)</span></a></li>
       </ul> 
       
-      <ul class='nav navbar-nav navbar-right'>
-	  <li class='dropdown'>
-          <a href='' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'> <span class='glyphicon glyphicon-user'></span> My Account <span class='caret'></span> </a>
-          <ul class='dropdown-menu'>
-            <li><a href='index.php?p=logout' <span class='glyphicon glyphicon-log-out'></span> Logout</a></li>
-          </ul>
-          </li>
-      </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 	    <center><h2>
-		    <img src="img/email.png" width="170px;" height="170px;"><br><br>
-            <font color="white"> Email Verification </font> </h2> <br>
+		    <img src="img/logo.png" width="270px;" height="200px;"><br><br>
+            <font color="lightblue"> Email Verification </font> </h2> <br>
             <form method="get" action="loginsuccessful.html">
-			<p> <font color="darkblue"> An email has been sent to your provided email address to verify your email address for security purposes.</p>
+			<p> <font color="white"> An email has been sent to your provided email address to verify your email address for security purposes.</p>
 			<p>If verified, click the button below to continue </font> </p> <br>
 			<button class = "btn btn-success"> Continue </button>
 		    </form>
     </center></body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<style>
+/* Footer */
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+section {
+    padding: 60px 0;
+}
+
+section .section-title {
+    text-align: center;
+    color: #007b5e;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+#footer {
+    background: black !important;
+}
+#footer h5{
+	padding-left: 10px;
+    border-left: 3px solid #eeeeee;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    color:white;
+}
+#footer a {
+    color: black;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+#footer ul.social li{
+	padding: 3px 0;
+}
+#footer ul.social li a i {
+    margin-right: 5px;
+	font-size:25px;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.social li:hover a i {
+	font-size:30px;
+	margin-top:-10px;
+}
+#footer ul.social li a,
+#footer ul.quick-links li a{
+	color:#ffffff;
+}
+#footer ul.social li a:hover{
+	color:#eeeeee;
+}
+#footer ul.quick-links li{
+	padding: 3px 0;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.quick-links li:hover{
+	padding: 3px 0;
+	margin-left:5px;
+	font-weight:700;
+}
+#footer ul.quick-links li a i{
+	margin-right: 5px;
+}
+#footer ul.quick-links li:hover a i {
+    font-weight: 700;
+}
+
+@media (max-width:767px){
+	#footer h5 {
+    padding-left: 0;
+    border-left: transparent;
+    padding-bottom: 0px;
+    
+}
+}
+
+</style>
+
+	<section id="footer">
+	<center>
+		<div class="container">
+			<div class="row text-center text-xs-center text-sm-left text-md-left">
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5> JOLT </h5>
+					   <p>Jolt India™ is a gurugram based start-up that intends to provide its customers a comfortable ride to their destination by supporting the Indian Government’s vision to promote the electric vehicles.</p>
+
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5> OUR LINKS </h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href=""><i class="fa fa-angle-double-right"></i>Home</a></li>
+						<li><a href=""><i class="fa fa-angle-double-right"></i>About Us</a></li>
+						<li><a href=""><i class="fa fa-angle-double-right"></i>Our Team</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5> CONTACT US </h5>
+                    <p><a style="color:white;" href= "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=electricjoltindia1@gmail.com"><i class="fa fa-envelope mr-3"></i> electricjoltindia1@gmail.com </a></p>
+                    <p><a style="color:white;" href="tel:97161 30797"><i class="fa fa-phone mr-3"></i> 97161 30797</a></p>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+					<p class="h6">&copy 2018 Copyright. All Rights Reversed.</p>
+				</div>
+				</hr>
+			</div>	
+		</div>
+	</center>
+	</section>
+
 </html>

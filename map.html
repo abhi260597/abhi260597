@@ -158,13 +158,13 @@
 	
     <input id="destination-input" class="controls" type="text"
         placeholder="Enter destination" style="color:black" name="Destination" required="required">
+
+    
 		
 	    <b>&nbsp;Distance:</b> <p style="display:inline" id="demo"></p>
 		&nbsp;&nbsp;&nbsp;&nbsp; <b>Time:</b> <p style="display:inline" id="dem"></p>
-		&nbsp;&nbsp;&nbsp;&nbsp; <p style="display:inline" id="dm"></p>
 		
-		
-		
+
 		<br> <button id="abc" style="position:absolute; bottom:63%; right:30%; z-index: 1;" class="btn btn-success"> Proceed further </button> </form>
  		
 		<button id="a" onclick="document.getElementById('origin-input').value = ''" type="button" size="50px" class="close" >
@@ -187,10 +187,11 @@ var firebaseRef = firebase.database().ref('Users').child(uid);
 
 firebaseRef.on('value', function(snapshot) {
    message = snapshot.val();
-   if(message.a == "yes"){}
-   else{
-   alert("You have not filled your personal details yet")
-   window.location.assign("index2.html");} });
+   
+   if(message == null){
+   alert("You have not filled your personal details yet");
+   window.location.assign("index2.html");}
+   else{} });
 });
 </script>
 		
@@ -200,7 +201,7 @@ firebaseRef.on('value', function(snapshot) {
 	firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
     } else {
-    //window.location.assign("index.html");
+    window.location.assign("index.html");
     }
     });
 	
@@ -304,7 +305,7 @@ firebaseRef.on('value', function(snapshot) {
 		
 			var d =response.routes[0].legs[0].distance.text
 			var k =response.routes[0].legs[0].duration.text
-			debugger;
+			
 			var de = response.routes[0].bounds.b.b
 			var dl = response.routes[0].bounds.b.f
 			var dk = response.routes[0].bounds.f.b
@@ -313,7 +314,7 @@ firebaseRef.on('value', function(snapshot) {
 			document.getElementById("SLat").value = de;
 			document.getElementById("SLon").value = dl;
 			document.getElementById("DLat").value = dk;
-			debugger;
+			
 			document.getElementById("DLon").value = ds;
 	
 			    document.getElementById("demo").innerHTML = d;

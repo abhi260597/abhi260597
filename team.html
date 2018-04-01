@@ -1,12 +1,21 @@
-<!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
-
-<link class="img" rel="icon" href="img/a.png">
-<title>Jolt</title>
-
+  <link class="img" rel="icon" href="img/a.png">
+  <title> Jolt </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
 <style>
+
+.card-img-top { 
+   border:1px solid #021a40;
+}
 
 body{
   font-family: arial, sans-serif;
@@ -15,123 +24,237 @@ body{
   background: linear-gradient(to left, #3a6186 , #89253e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color : #fff;
   }
-
-html {
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-.column {
-  float: left;
-  width: 33%;
-  margin-bottom: 16px;
-  padding: 0 8px;
-}
-
-@media screen and (max-width: 650px) {
-  .column {
-    display: block;
+  
+  .card {
+  color:blue;
+  
   }
-}
-
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-.container {
-  padding: 0 16px;
-}
-
-.container::after, .row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.title {
-  color: grey;
-}
-
+  
+  p.ex1{
+  display: inline;
+  font-size: 25px;
+  }
+  
 </style>
+  
 </head>
 <body>
 
-<center> <h2>Our Team Contribution</h2> </center>
-<hr width="280px;" color="cyan">
-<br>
-<h3 style="padding-left:30px;"> App Team</h3>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="">Jolt</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html"> <span class="glyphicon glyphicon-home"></span> Home </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="about.html"> <span class="glyphicon glyphicon-book"></span> About Us</a>
+      </li>
+	  <li class="nav-item active">
+        <a class="nav-link" href="team.html"> <span class="glyphicon glyphicon-user"></span> Our Team </a>
+      </li>
+	  
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="nav-item active">
+        <a class="nav-link" href="index1.html"> <span class="glyphicon glyphicon-edit"></span> Sign Up </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="login.html"> <span class="glyphicon glyphicon-log-in"></span> Login </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<center>
+<font color="pink"> <h3>Our Team Contribution</h3> </font>
+<hr width="310px;" color="cyan">
 <br>
 
-<div class="row">
-<div class="col-sm-4">
-  <div class="column" style="padding-left:20px;">
-    <div class="card">
-      <center> <img src="img/ad.jpeg" alt="Jane" style="width:200px; padding-top:10px;"> </center>
-      <div class="container">
-        <h2>Adriealle Dsouza</h2>
-        <p class="title">Lead Android Backend Developer</p>
-        <p>Database administrator for the Jolt and responsible for implementing user authentication using Custom and Gmail IDs. Integrated main database into Google maps and OR code generator for the application.</p>
-      </div>
-    </div>
-  </div>
-  </div>
+<div>
+<img src="img/android.png" style="width:50px; height:50px; margin-bottom:1%;">
+<p class="ex1"> <font color="mahendi"> App Team </font> </p>
+</div>
 
-  <div class="col-sm-4">
-  <div class="column" style="padding-left:30px;">
-    <div class="card">
-      <center> <img src="img/anant.jpeg" alt="Mike" style="width:200px; padding-top:10px;"> </center>
-      <div class="container">
-        <h2>Anant Mehra</h2>
-        <p class="title">Lead Front End Developer</p>
-        <p>Was responsible for providing user amazing user interface for application and creating a clean layout for pages such as log in ,sign-up,home ,payment and QR code. Created the start-up animation for the application.</p>
-      </div>
+<br>
+</center>
+
+<center>
+
+<div class="card-deck" style="margin-left:2%;margin-right:3%;">
+  <div class="card">
+    <img class="card-img-top" src="img/ad.jpg" style="width:200px; height:220px; margin-top:20px;" alt="Card image cap">
+    <div class="card-body">
+	  <h3>Adriealle Dsouza</h3>
+      <font color="orange"> <h5 class="card-title">Lead Android Backend Developer</h5> </font>
+      <font color="black"> <p class="card-text">Database administrator for the Jolt and responsible for implementing user authentication using Custom and Gmail IDs. Integrated main database into Google maps and OR code generator for the application.</p> </font>
     </div>
-  </div>
   </div>
   
-  <div class="col-sm-4">
-  <div class="column" style="padding-left:30px;">
-    <div class="card">
-      <center> <img src="img/anchit.jpeg" alt="John" style="width:200px; padding-top:10px;"> </center>
-      <div class="container">
-        <h2>Anchit Bhalla</h2>
-        <p class="title">Android Developer</p>
-        <p>Was responsible for providing user amazing user interface for application and creating a clean layout for pages such as log in ,sign-up,home ,payment and QR code. Created the start-up animation for the application.</p>
-      </div>
+  <div class="card">
+    <img class="card-img-top" src="img/anant.jpeg" style="width:200px; margin-top:20px;" alt="Card image cap">
+    <div class="card-body">
+	  <h3>Anant Mehra</h3>
+      <font color="orange"> <h5 class="card-title">Lead Front End Developer</h5> </font>
+      <font color="black"> <p class="card-text">Responsible for providing user amazing user interface for application and creating a clean layout for pages such as log in ,sign-up,home ,payment and QR code. Created the start-up animation for the application.</p> </font>
     </div>
   </div>
-</div>
-</div>
-
-<div class="row">
-<br>
-<h3 style="padding-left:30px;"> Web Team</h3>
-<br>
-
-<div class="column" style="padding-left:20px;">
-    <div class="card">
-      <center> <img src="img/aditya.jpeg" alt="John" style="width:200px; padding-top:10px;"> </center>
-      <div class="container">
-        <h2>Aditya Shrivastava</h2>
-        <p class="title">Website Developer</p>
-        <p>Was responsible for providing user authentication and setting up the database integration into Google maps and Qr code for the website.Maintained the session account of verified users.</p>
-      </div>
-    </div>
-  </div>
-  <div class="column" style="padding-left:30px;">
-    <div class="card">
-      <center> <img src="img/abhishek.jpeg" alt="John" style="width:200px; padding-top:10px;"> </center>
-      <div class="container">
-        <h2>Abhishek Kumar</h2>
-        <p class="title">Website Developer</p>
-        <p>Was responsible integrating Google map along with developing Qr code generator for the website. Hosted the website and connected front end with the back end.</p>
-      </div>
+  
+  <div class="card">
+    <img class="card-img-top" src="img/anchit.jpg" style="width:200px; margin-top:20px;" border="5" alt="Card image cap">
+    <div class="card-body">
+	  <h3>Anchit Bhalla</h3>
+      <font color="orange"> <h5 class="card-title">Android Developer</h5> </font>
+      <font color="black"> <p class="card-text">Responsible for integrating Google map along with developing the Qr code generator for the application. Developed pricing algorithm in the previous version of the application.</p> </font>
     </div>
   </div>
 </div>
 
+<center>
+<br><br><br>
+<img src="img/website.png" style="width:40px; height:40px; margin-bottom:1%;">
+<p class="ex1" style=""> <font color="yellow"> Web Team </font> </p>
+<br><br>
+</center>
+
+<div class="card-deck"; style="margin-left:2%; margin-right:3%; margin-bottom:1%">
+  <div class="card">
+    <img class="card-img-top" src="img/aditya.jpg" style="width:200px; height:260px; margin-top:20px;" alt="Card image cap">
+    <div class="card-body">
+	  <h3>Aditya Shrivastava</h3>
+      <font color="orange"> <h5 class="card-title">Website Developer</h5> </font>
+      <font color="black"> <p class="card-text">Responsible for providing user authentication and setting up the database integration into Google maps and Qr code for the website. Maintained the session account of verified users.</p> </font>
+    </div>
+  </div>
+  
+  <div class="card">
+    <img class="card-img-top" src="img/abhishek.jpg" style="width:200px; margin-top:20px;" alt="Card image cap">
+    <div class="card-body">
+	  <h3>Abhishek Kumar</h3>
+      <font color="orange"> <h5 class="card-title">Website Developer</h5> </font>
+      <font color="black"> <p class="card-text">Responsible integrating Google map along with developing Qr code generator for the website. Hosted the website and connected front end with the back end.</p> </font>
+    </div>
+  </div>
+</div>
+
+</center>
+
+<style>
+/* Footer */
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+section {
+    padding: 60px 0;
+}
+
+section .section-title {
+    text-align: center;
+    color: #007b5e;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+#footer {
+    background: black !important;
+}
+#footer h5{
+	padding-left: 10px;
+    border-left: 3px solid #eeeeee;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    color:white;
+}
+#footer a {
+    color: black;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+#footer ul.social li{
+	padding: 3px 0;
+}
+#footer ul.social li a i {
+    margin-right: 5px;
+	font-size:25px;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.social li:hover a i {
+	font-size:30px;
+	margin-top:-10px;
+}
+#footer ul.social li a,
+#footer ul.quick-links li a{
+	color:#ffffff;
+}
+#footer ul.social li a:hover{
+	color:#eeeeee;
+}
+#footer ul.quick-links li{
+	padding: 3px 0;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.quick-links li:hover{
+	padding: 3px 0;
+	margin-left:5px;
+	font-weight:700;
+}
+#footer ul.quick-links li a i{
+	margin-right: 5px;
+}
+#footer ul.quick-links li:hover a i {
+    font-weight: 700;
+}
+
+@media (max-width:767px){
+	#footer h5 {
+    padding-left: 0;
+    border-left: transparent;
+    padding-bottom: 0px;
+    
+}
+}
+
+</style>
+
+	<section id="footer">
+	<center>
+		<div class="container">
+			<div class="row text-center text-xs-center text-sm-left text-md-left">
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5> JOLT </h5>
+					   <p>Jolt India™ is a gurugram based start-up that intends to provide its customers a comfortable ride to their destination by supporting the Indian Government’s vision to promote the electric vehicles.</p>
+
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5> OUR LINKS </h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href=""><i class="fa fa-angle-double-right"></i>Home</a></li>
+						<li><a href=""><i class="fa fa-angle-double-right"></i>About Us</a></li>
+						<li><a href=""><i class="fa fa-angle-double-right"></i>Our Team</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5> CONTACT US </h5>
+                    <p><a style="color:white;" href= "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=electricjoltindia1@gmail.com"><i class="fa fa-envelope mr-3"></i> electricjoltindia1@gmail.com </a></p>
+                    <p><a style="color:white;" href="tel:97161 30797"><i class="fa fa-phone mr-3"></i> 97161 30797</a></p>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+					<p class="h6">&copy 2018 Copyright. All Rights Reversed.</p>
+				</div>
+				</hr>
+			</div>	
+		</div>
+	</center>
+	</section>
+	
 </body>
 </html>

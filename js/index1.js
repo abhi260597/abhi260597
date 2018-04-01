@@ -9,7 +9,6 @@ var config = {
 firebase.initializeApp(config);
 
 function aabb(){
-	debugger;
 
 var currentDate = new Date(),
       day = currentDate.getDate(),
@@ -31,7 +30,10 @@ var d1="";
 var d2="";
 var b = document.getElementById("origin-input");
 var c = document.getElementById("destination-input");
-var a = document.getElementById("dm");
+//var a = document.getElementById("dm");
+
+var a = sessionStorage.getItem("clickcountes");
+
 if(document.getElementById("SLat")){
 s1=document.getElementById("SLat").value;
 }
@@ -50,13 +52,6 @@ var submitBtn = document.getElementById("submit");
 var b = b.value;
 var c = c.value;
 //var a = a.value;
-var s1 = s1.value;
-var s2 = s2.value;
-//var d1 = d1.value;
-//var d2 = d2.value;
-
-alert(s1);
-console.log(s1);
 
 var user = firebase.auth().currentUser;
 var ab = user.displayName;
@@ -65,16 +60,14 @@ var uid = user.uid;
 var firebaseRef = firebase.database().ref('Payment').child(uid);
 
 var data = {
-Name: ab,
-Source: b,
-Destination: c,
+NAME: ab,
+From: b,
+To: c,
 Booking_Date: date,
 Booking_Time: time,
-Source_Latitude: s1
-//Rate: a
-//Source Longitude: s2,
-//Destination Latitude: d1,
-//Destination Longitude: d2
+S: "lat/lng: ("+d1+","+s1+")",
+DEST: "lat/lng: ("+d2+","+s2+")",
+Fare: a
 }
 
 firebaseRef.set(data);
